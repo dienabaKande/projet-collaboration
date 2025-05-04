@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+
+<h2>Bienvenue sur le dashboard</h2>
+
+<!-- Bouton de déconnexion -->
+<button onclick="logout()">Se déconnecter</button>
+
+<script>
+  function logout() {
+    // Si tu stockes ton token dans le localStorage
+    localStorage.removeItem('token');
+
+    // Si tu stockes ton token dans un cookie
+    document.cookie = "token=; Max-Age=0; path=/";
+
+    // Redirige vers la page de connexion
+    window.location.href = "/login";
+  }
+</script>
+
+<%- include('partials/footer') %>

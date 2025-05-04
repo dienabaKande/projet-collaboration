@@ -1,0 +1,70 @@
+<%- include('partials/header') %>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Accueil - Plateforme</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #f9f3ec, #e8e0d9);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .menu {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .menu a {
+      text-decoration: none;
+      background-color: #333;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 25px;
+      width: 200px;
+      transition: 0.3s ease;
+    }
+
+    .menu a:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenue sur la plateforme !</h1>
+  <div class="menu">
+    <a href="/login">Se connecter</a>
+    <a href="/register">S'inscrire</a>
+    <a href="/dashboard">Tableau de bord</a>
+    <a href="/create-projet">Créer un projet</a>
+    <a href="/invitation">Voir les invitations</a>
+    <a href="/profile">Mon profil</a>
+  </div>
+</body>
+
+<button onclick="logout()">Se déconnecter</button>
+
+<script>
+  function logout() {
+    // Supprimer le token
+    localStorage.removeItem('token');
+    // Rediriger vers /login
+    window.location.href = '/login';
+  }
+</script>
+</html>
+
+
+<%- include('partials/footer') %>

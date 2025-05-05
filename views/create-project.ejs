@@ -1,20 +1,51 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Créer Projet</title><link rel="stylesheet" href="/css/style.css"></head><body>
-    <%- include('partials/header') %>
-    <h1>Créer un projet</h1>
-    <form id="createForm">
-      <input type="text" id="name" placeholder="Nom du projet" required />
-      <textarea id="description" placeholder="Description"></textarea>
-      <button type="submit">Créer</button>
-    </form>
-    <script src="/js/create-project.js"></script>
-  </body>
-  
-  <script>
-    const token = localStorage.getItem('token');
-    if (!token) {
-      alert('Veuillez vous connecter d’abord.');
-      window.location.href = '/login';
+<h2>Créer un projet</h2>
+<form id="createProjectForm">
+  <input type="text" id="projectName" name="name" placeholder="Nom du projet" required><br>
+  <textarea id="projectDescription" name="description" placeholder="Description"></textarea><br>
+  <button type="submit">Créer</button>
+</form>
+
+<p id="createMessage" style="color:green;"></p>
+
+<script>
+document.getElementById('createProjectForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById('projectName').value.trim();
+  const description = document.getElementById('projectDescription').value.trim();
+  const token = localStorage.getItem('token');
+
+  if (!token) {
+    alert("Vous devez être connecté pour créer un projet.");
+    return;
+  }
+
+  try {
+    const res = await fetch('/api/projects/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+      },
+      body: JSON.stringify({ name, description })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      document.getElementById('createMessage').style.color = 'red';
+      document.getElementById('createMessage').innerText = data.message || "Erreur";
+      return;
     }
-  </script>
-  
-  </html>
+
+    document.getElementById('createMessage').style.color = 'green';
+    document.getElementById('createMessage').innerText = 'Projet créé avec succès !';
+    document.getElementById('createProjectForm').reset();
+  } catch (err) {
+    console.error(err);
+    document.getElementById('createMessage').style.color = 'red';
+    document.getElementById('createMessage').innerText = 'Erreur serveur';
+  }
+});
+</script>
+

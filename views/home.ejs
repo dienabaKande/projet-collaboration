@@ -1,6 +1,5 @@
 <%- include('partials/header') %>
 
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -40,6 +39,20 @@
     .menu a:hover {
       background-color: #555;
     }
+
+    #logout-btn {
+      background-color: #ff5733;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      width: 200px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    #logout-btn:hover {
+      background-color: #ff3311;
+    }
   </style>
 </head>
 <body>
@@ -52,19 +65,28 @@
     <a href="/invitation">Voir les invitations</a>
     <a href="/profile">Mon profil</a>
   </div>
+
+  <!-- Afficher le bouton de déconnexion si l'utilisateur est connecté -->
+  <div id="logout-section" style="display: none;">
+    <button id="logout-btn">Se déconnecter</button>
+  </div>
+
+  <script>
+    // Vérifier si l'utilisateur est connecté en vérifiant le token dans localStorage
+    if (localStorage.getItem('token')) {
+      // Si le token est présent, afficher le bouton de déconnexion
+      document.getElementById('logout-section').style.display = 'block';
+    }
+
+    // Fonction de déconnexion
+    document.getElementById('logout-btn')?.addEventListener('click', function() {
+      // Supprimer le token de localStorage
+      localStorage.removeItem('token');
+      // Rediriger vers la page de connexion
+      window.location.href = '/login';
+    });
+  </script>
 </body>
-
-<button onclick="logout()">Se déconnecter</button>
-
-<script>
-  function logout() {
-    // Supprimer le token
-    localStorage.removeItem('token');
-    // Rediriger vers /login
-    window.location.href = '/login';
-  }
-</script>
 </html>
-
 
 <%- include('partials/footer') %>

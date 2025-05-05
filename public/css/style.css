@@ -1,0 +1,101 @@
+/* Variables couleurs */
+:root {
+    --violet-clair: #b19cd9;
+    --violet-fonce: #6a0dad;
+    --blanc: #ffffff;
+    --gris-fonce: #2c2c2c;
+  }
+  
+  /* Global */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  body {
+    background: linear-gradient(135deg, var(--violet-clair), var(--violet-fonce));
+    color: var(--gris-fonce);
+    min-height: 100vh;
+  }
+  a {
+    color: var(--violet-fonce);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Header & footer */
+  header, footer {
+    background-color: var(--blanc);
+    padding: 1rem 2rem;
+  }
+  header nav a {
+    margin-right: 1.5rem;
+    font-weight: bold;
+  }
+  #logoutBtn {
+    background-color: var(--violet-fonce);
+    color: var(--blanc);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  #logoutBtn:hover {
+    background-color: var(--violet-clair);
+  }
+  
+  /* Conteneurs et sections */
+  .container, .auth-container, main {
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: var(--blanc);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Formulaires */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  form input, form textarea {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid var(--violet-fonce);
+    border-radius: 0.25rem;
+  }
+  form button {
+    background-color: var(--violet-fonce);
+    color: var(--blanc);
+    padding: 0.75rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  form button:hover {
+    background-color: var(--violet-clair);
+  }
+  
+  /* Dashboard */
+  .project-card {
+    background-color: var(--violet-clair);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .project-card h2 {
+    color: var(--blanc);
+  }
+  .project-card p {
+    color: var(--blanc);
+  }
+  
+  /* Buttons généraux */
+  button {
+    font-size: 1rem;
+  }

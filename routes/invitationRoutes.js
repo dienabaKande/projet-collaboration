@@ -13,3 +13,4 @@ router.get('/', getInvitations);
 router.put('/:id/respond', respondInvitation);
 
 module.exports = router;
+

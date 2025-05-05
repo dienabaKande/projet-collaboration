@@ -1,4 +1,5 @@
 <%- include('partials/header') %>
+<script src="/js/auth.js"></script>
 
 <h2>Bienvenue sur le dashboard</h2>
 
@@ -17,5 +18,14 @@
     window.location.href = "/login";
   }
 </script>
+
+<script>
+  const token = localStorage.getItem('token');
+  if (!token) {
+    alert('Veuillez vous connecter d’abord.');
+    window.location.href = '/login';
+  }
+</script>
+
 
 <%- include('partials/footer') %>

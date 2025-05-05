@@ -28,4 +28,3 @@ window.addEventListener('load', async () => {
       location.href = '/login';
     });
   });
-  ```

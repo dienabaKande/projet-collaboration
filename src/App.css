@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff; /* Fond blanc propre */
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #6a1b9a;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffccff;
+}
+
+.page-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  color: #6a1b9a;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+input[type="text"] {
+  padding: 0.7rem;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #6a1b9a;
+  box-shadow: 0 0 5px rgba(106, 27, 154, 0.3);
+}
+
+/* ✅ Liste d’activités avec "sur" aligné */
+.activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activity-list li {
+  background: #ede7f6;
+  padding: 1rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.activity-list .on {
+  color: #6a1b9a;
+  font-weight: bold;
+  width: 40px; /* fixe la largeur de "sur" */
+  text-align: center;
+}
+
+.activity-list .author,
+.activity-list .project,
+.activity-list .details,
+.activity-list .date {
+  flex: 1;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  background: #f4f0fa;
+  padding: 1rem;
+  border-radius: 15px;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li span {
+  display: block;
+}
+
+button {
+  border: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  margin-right: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+.btn-edit {
+  background-color: #d1c4e9;
+  color: #4a148c;
+}
+
+.btn-delete {
+  background-color: #f8bbd0;
+  color: #880e4f;
+}
+
+.btn-block {
+  background-color: #b39ddb;
+  color: #311b92;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  padding: 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #ce93d8;
+  color: #4a148c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .activity-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
